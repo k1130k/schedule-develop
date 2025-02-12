@@ -5,12 +5,10 @@ import lombok.Getter;
 import java.time.LocalDateTime;
 
 @Getter
-public class ScheduleRequestDto {
+public class UserRequestDto {
 
     private String member;
-    private String title;
-    private String content;
+    private String email;
     private LocalDateTime createdAt;
     private LocalDateTime updatedAt;
-    private  Long userId;
 }

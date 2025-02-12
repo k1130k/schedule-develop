@@ -1,9 +1,6 @@
 package com.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
@@ -22,17 +19,23 @@ public class Schedule extends  BaseEntity {
     private LocalDateTime createdAt;
     private LocalDateTime updatedAt;
 
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "user id", nullable = false)
+    private  User user;
+
     public Schedule(String member,
                     String title,
                     String content,
                     LocalDateTime createdAt,
-                    LocalDateTime updatedAt
+                    LocalDateTime updatedAt,
+                    User user
     ) {
         this.member = member;
         this.title = title;
         this.content = content;
         this.createdAt = createdAt;
         this.updatedAt = updatedAt;
+        this.user = user;
     }
 
     public void update(String member,
@@ -47,4 +50,5 @@ public class Schedule extends  BaseEntity {
         this.createdAt = createdAt;
         this.updatedAt = updatedAt;
     }
+
 }

@@ -4,7 +4,9 @@ package com.service;
 import com.dto.ScheduleRequestDto;
 import com.dto.ScheduleResponseDto;
 import com.entity.Schedule;
+import com.entity.User;
 import com.repository.ScheduleRepository;
+import com.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -19,14 +21,20 @@ import static org.springframework.data.jpa.domain.AbstractPersistable_.id;
 public class ScheduleService {
 
     private final ScheduleRepository scheduleRepository;
+    private final UserRepository userRepository;
 
     @Transactional
     public ScheduleResponseDto save(ScheduleRequestDto dto) {
+
+        User user = userRepository.findById(dto.getUserId()).orElseThrow(
+                () -> new IllegalStateException("존재하지 않는 user입니다.")
+        );
         Schedule schedule = new Schedule(dto.getMember(),
                 dto.getTitle(),
                 dto.getContent(),
                 dto.getCreatedAt(),
-                dto.getUpdatedAt()
+                dto.getUpdatedAt(),
+                user
         );
         Schedule savedSchedule = scheduleRepository.save(schedule);
 
@@ -64,7 +72,7 @@ public class ScheduleService {
     @Transactional(readOnly = true)
     public ScheduleResponseDto findById(Long id) {
         Schedule schedule = scheduleRepository.findById(id).orElseThrow(
-                () -> new IllegalArgumentException("회원이 없습니다.")
+                () -> new IllegalArgumentException("일정이 없습니다.")
         );
         return new ScheduleResponseDto(schedule.getId(),
                 schedule.getMember(),
@@ -100,7 +108,7 @@ public class ScheduleService {
     @Transactional
     public void deleteById(Long id) {
         if (!scheduleRepository.existsById(id)) {
-            throw new IllegalArgumentException("일치하는 정보가 없어 삭제가 불가합니다.");
+            throw new IllegalArgumentException("일치하는 정보가 없어 삭제가 불가능합니다.");
         }
 
         scheduleRepository.deleteById(id);
