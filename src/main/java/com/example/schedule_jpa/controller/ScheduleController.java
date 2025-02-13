@@ -1,10 +1,8 @@
-package com.controller;
+package com.example.schedule_jpa.controller;
 
-import com.dto.ScheduleRequestDto;
-import com.dto.ScheduleResponseDto;
-import com.entity.Schedule;
-import com.repository.ScheduleRepository;
-import com.service.ScheduleService;
+import com.example.schedule_jpa.dto.ScheduleRequestDto;
+import com.example.schedule_jpa.dto.ScheduleResponseDto;
+import com.example.schedule_jpa.service.ScheduleService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;

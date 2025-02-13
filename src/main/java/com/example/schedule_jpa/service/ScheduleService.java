@@ -1,20 +1,18 @@
-package com.service;
+package com.example.schedule_jpa.service;
 
 
-import com.dto.ScheduleRequestDto;
-import com.dto.ScheduleResponseDto;
-import com.entity.Schedule;
-import com.entity.User;
-import com.repository.ScheduleRepository;
-import com.repository.UserRepository;
+import com.example.schedule_jpa.dto.ScheduleRequestDto;
+import com.example.schedule_jpa.dto.ScheduleResponseDto;
+import com.example.schedule_jpa.entity.Schedule;
+import com.example.schedule_jpa.entity.User;
+import com.example.schedule_jpa.repository.ScheduleRepository;
+import com.example.schedule_jpa.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.ArrayList;
 import java.util.List;
-
-import static org.springframework.data.jpa.domain.AbstractPersistable_.id;
 
 @Service
 @RequiredArgsConstructor

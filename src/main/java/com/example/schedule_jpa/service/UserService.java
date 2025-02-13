@@ -1,9 +1,9 @@
-package com.service;
+package com.example.schedule_jpa.service;
 
-import com.dto.UserRequestDto;
-import com.dto.UserResponseDto;
-import com.entity.User;
-import com.repository.UserRepository;
+import com.example.schedule_jpa.dto.UserRequestDto;
+import com.example.schedule_jpa.dto.UserResponseDto;
+import com.example.schedule_jpa.entity.User;
+import com.example.schedule_jpa.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;

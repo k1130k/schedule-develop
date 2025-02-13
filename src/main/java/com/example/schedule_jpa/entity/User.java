@@ -1,4 +1,4 @@
-package com.entity;
+package com.example.schedule_jpa.entity;
 
 import jakarta.persistence.*;
 import lombok.Getter;

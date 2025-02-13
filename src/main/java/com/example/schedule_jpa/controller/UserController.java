@@ -1,8 +1,8 @@
-package com.controller;
+package com.example.schedule_jpa.controller;
 
-import com.dto.UserRequestDto;
-import com.dto.UserResponseDto;
-import com.service.UserService;
+import com.example.schedule_jpa.dto.UserRequestDto;
+import com.example.schedule_jpa.dto.UserResponseDto;
+import com.example.schedule_jpa.service.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -16,13 +16,13 @@ public class UserController {
     private final UserService userService;
 
     @PostMapping("/users")
-    public UserResponseDto save(@RequestBody UserRequestDto dto) {
-        return userService.save(dto);
+    public ResponseEntity<UserResponseDto> save(@RequestBody UserRequestDto dto) {
+        return ResponseEntity.ok(userService.save(dto));
     }
 
     @GetMapping("/users")
-    public List<UserResponseDto> findAll() {
-        return  userService.findAll();
+    public ResponseEntity<List<UserResponseDto>> findAll() {
+        return ResponseEntity.ok(userService.findAll());
     }
 
     @GetMapping("/users/{id}")

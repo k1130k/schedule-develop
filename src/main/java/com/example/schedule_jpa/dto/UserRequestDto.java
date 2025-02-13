@@ -1,16 +1,14 @@
-package com.dto;
+package com.example.schedule_jpa.dto;
 
 import lombok.Getter;
 
 import java.time.LocalDateTime;
 
 @Getter
-public class ScheduleRequestDto {
+public class UserRequestDto {
 
     private String member;
-    private String title;
-    private String contents;
+    private String email;
     private LocalDateTime createdAt;
     private LocalDateTime updatedAt;
-    private  Long userId;
 }
