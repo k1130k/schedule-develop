@@ -9,7 +9,7 @@ public class ScheduleRequestDto {
 
     private String member;
     private String title;
-    private String content;
+    private String contents;
     private LocalDateTime createdAt;
     private LocalDateTime updatedAt;
     private  Long userId;

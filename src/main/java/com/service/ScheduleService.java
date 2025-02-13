@@ -31,7 +31,7 @@ public class ScheduleService {
         );
         Schedule schedule = new Schedule(dto.getMember(),
                 dto.getTitle(),
-                dto.getContent(),
+                dto.getContents(),
                 dto.getCreatedAt(),
                 dto.getUpdatedAt(),
                 user
@@ -41,7 +41,7 @@ public class ScheduleService {
         return new ScheduleResponseDto(savedSchedule.getId(),
                 savedSchedule.getMember(),
                 savedSchedule.getTitle(),
-                savedSchedule.getContent(),
+                savedSchedule.getContents(),
                 savedSchedule.getCreatedAt(),
                 savedSchedule.getUpdatedAt()
         );
@@ -58,7 +58,7 @@ public class ScheduleService {
             ScheduleResponseDto dto = new ScheduleResponseDto(schedule.getId(),
                     schedule.getMember(),
                     schedule.getTitle(),
-                    schedule.getContent(),
+                    schedule.getContents(),
                     schedule.getCreatedAt(),
                     schedule.getUpdatedAt()
             );
@@ -77,7 +77,7 @@ public class ScheduleService {
         return new ScheduleResponseDto(schedule.getId(),
                 schedule.getMember(),
                 schedule.getTitle(),
-                schedule.getContent(),
+                schedule.getContents(),
                 schedule.getCreatedAt(),
                 schedule.getUpdatedAt()
         );
@@ -91,14 +91,14 @@ public class ScheduleService {
 
         schedule.update(dto.getMember(),
                 dto.getTitle(),
-                dto.getContent(),
+                dto.getContents(),
                 dto.getCreatedAt(),
                 dto.getUpdatedAt()
         );
         return new ScheduleResponseDto(schedule.getId(),
                 schedule.getMember(),
                 schedule.getTitle(),
-                schedule.getContent(),
+                schedule.getContents(),
                 schedule.getCreatedAt(),
                 schedule.getUpdatedAt()
         );

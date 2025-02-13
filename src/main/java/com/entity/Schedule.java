@@ -8,31 +8,37 @@ import java.time.LocalDateTime;
 
 @Getter
 @Entity
+@Table(name = "schedules")
 @NoArgsConstructor
 public class Schedule extends  BaseEntity {
 
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String member;
+
+    @Column(nullable = false)
     private String title;
-    private String content;
+
+    @Column(columnDefinition = "longtext")
+    private String contents;
+
     private LocalDateTime createdAt;
     private LocalDateTime updatedAt;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "user id", nullable = false)
+    @JoinColumn(name = "user_id", nullable = false)
     private  User user;
 
     public Schedule(String member,
                     String title,
-                    String content,
+                    String contents,
                     LocalDateTime createdAt,
                     LocalDateTime updatedAt,
                     User user
     ) {
         this.member = member;
         this.title = title;
-        this.content = content;
+        this.contents = contents;
         this.createdAt = createdAt;
         this.updatedAt = updatedAt;
         this.user = user;
@@ -40,13 +46,13 @@ public class Schedule extends  BaseEntity {
 
     public void update(String member,
                        String title,
-                       String content,
+                       String contents,
                        LocalDateTime createdAt,
                        LocalDateTime updatedAt
     ) {
         this.member = member;
         this.title = title;
-        this.content = content;
+        this.contents = contents;
         this.createdAt = createdAt;
         this.updatedAt = updatedAt;
     }

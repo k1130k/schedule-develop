@@ -1,9 +1,6 @@
 package com.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
@@ -11,6 +8,7 @@ import java.time.LocalDateTime;
 
 @Getter
 @Entity
+@Table(name = "users")
 @NoArgsConstructor
 public class User extends BaseEntity {
 
@@ -20,6 +18,9 @@ public class User extends BaseEntity {
     private String email;
     private LocalDateTime createdAt;
     private LocalDateTime updatedAt;
+
+    @Column(nullable = false)
+    private  String password;
 
     public User(String member,
                 String email,
